@@ -26,9 +26,34 @@ const init =() => {
                     "Add a department",
                     "Add a role",
                     "Add an employee",
-                    "Update an employee role"
+                    "Update an employee role",
+                    "All done"
                 ]
 
             }
-        ])
+        ]).then (ans =>{
+            //console.log(answers)
+            switch(ans.action){
+                case "View all departments": viewDept();
+                break;
+            case "View all roles": viewRoles();
+                break;
+            case "View all employees": viewEmployees();
+                break;
+            case "Add a department": addDept();
+                break;
+            case "Add a role": addRole();
+                break;
+            case "Add an employee": addEmployee();
+                break;
+            case "Update an employee role": updateEmployee();
+                break;
+            case "All done":
+                console.log("Thank you!");
+                process.exit();
+            }
+        }).catch(err=>console.error(err));
 }
+
+init();
+

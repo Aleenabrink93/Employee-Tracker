@@ -57,3 +57,10 @@ const init =() => {
 
 init();
 
+const viewDept = () => {
+    db.query(`SELECT * FROM department`,(err,results)=>{
+        err? console.error(err): console.table(results);
+        init();
+    })
+}
+

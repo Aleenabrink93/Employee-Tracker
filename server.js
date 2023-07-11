@@ -12,7 +12,7 @@ const db = mysql.createConnection(
 );
 
 const init =() => {
-    console.log("EMPLOYEE TRACKER");
+    console.log(`🄴🄼🄿🄻🄾🅈🄴🄴 🅃🅁🄰🄲🄺🄴🅁`);
     inquirer 
         .prompt([
             {
@@ -26,7 +26,6 @@ const init =() => {
                     "Add a department",
                     "Add a role",
                     "Add an employee",
-                    "Update an employee role",
                     "All done"
                 ]
 
@@ -83,10 +82,10 @@ const addDept =()=>{
             {
                 type: "input",
                 message: "What is the name of the department?",
-                name: addDept
+                name: "addDept"
             }
         ]).then(ans=>{
-            db.query(`INSERT INTO department(name) VALUES(?)`, ans.addDept,(err,results=>{ 
+            db.query(`INSERT INTO department(name) VALUES(?)`, [ans.addDept],(err,results)=>{ 
                 if (err){
                     console.log(err)
                 } else {
@@ -95,7 +94,7 @@ const addDept =()=>{
                       init();
                     
                 })}
-            }))
+            })
            
         })
 };
